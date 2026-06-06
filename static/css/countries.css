@@ -1,0 +1,26 @@
+.flag_grid {
+    display: grid;
+    grid-template-columns: repeat(6,1fr);
+    gap: 10px;
+    padding: 20px;
+}
+
+.flag {
+    text-align: center;
+}
+
+.flag:hover {
+    font-weight: bold;
+}
+
+.flag img {
+    width: 120px;
+    height: 75px;
+    max-width: 75%;
+    max-height: 75%;
+    border-radius: 10px;
+}
+
+.flag img:hover {
+    outline: 5px solid black;
+}

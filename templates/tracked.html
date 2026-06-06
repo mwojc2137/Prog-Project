@@ -1,0 +1,42 @@
+{% extends 'index.html' %}
+{% block title %} Tracked cities {% endblock %}
+{% block css %} <link rel="stylesheet" href="{{ url_for('static', filename='css/tracked.css')}}"> {% endblock %}
+{% block content %}
+    <h2>Tracked cities:</h2>
+    {% if cities|length == 0 %}
+        <p>No cities.</p>
+    {% else %}
+        <div class='columns'>
+            <ul style="list-style-type: none;">
+                <label>Visited cities:</label>
+                {% for city in cities %}
+                    {% if city['visited'] == 2 %}
+                    <li>
+                        <a href="{{ url_for('web.city', city_id=city['id']) }}">{{ city["name"] }}</a>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul style="list-style-type: none;">
+            <label>Cities in plans:</label>
+                {% for city in cities %}
+                    {% if city['visited'] == 1 %}
+                    <li>
+                        <a href="{{ url_for('web.city', city_id=city['id']) }}">{{ city["name"] }}</a>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+            <ul style="list-style-type: none;">
+                <label>Not visited cities:</label>
+                {% for city in cities %}
+                    {% if city['visited'] == 0 %}
+                    <li>
+                        <a href="{{ url_for('web.city', city_id=city['id']) }}">{{ city["name"] }}</a>
+                    </li>
+                    {% endif %}
+                {% endfor %}
+            </ul>
+        </div>
+    {% endif %}
+{% endblock %}

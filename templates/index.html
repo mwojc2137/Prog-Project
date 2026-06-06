@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}Travel Tracker{% endblock %}</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/index.css')}}">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+    {% block css %}  {% endblock %}
+</head>
+<body>
+    <header>
+        <h1>Travel Tracker App</h1>
+        <div class = "links">
+            <a href="{{ url_for('web.index') }}">Home</a>
+            <a href="{{ url_for('web.tracked') }}">Tracked cities</a>
+            <a href="{{ url_for('web.add_city') }}">Add city</a>
+            <a href="{{ url_for('web.countries') }}">Countries</a>
+            <a href="{{ url_for('web.ratings') }}">Ratings</a>
+        </div>
+    </header>
+    <div class='flash'>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <ul class=flashes>
+                {% for category, message in messages %}
+                    <li class="{{ category }}">{{ message }}</li>
+                {% endfor %}
+                </ul>
+            {% endif %}
+        {% endwith %}
+    </div>
+    {% block content %}
+        <div class="map">
+            <img src="{{ url_for('static', filename='WorldMAP.png') }}" alt="World Map">
+        {% for city in city_cords %}
+            <button
+                onclick="location.href='{{ url_for('web.city', city_id=city[0])}}'"
+                class="map-button {% if city[4] == 2 %}visited{% elif city[4] == 1 %}planned{% else %}not-visited{% endif %}"
+                style="top: {{ city[2] }}%; left: {{ city[3] }}%;"
+                data_name="{{ city[1] }}"
+            >
+            </button>
+        {% endfor %}
+        </div>
+    {% endblock %}
+</body>
+</html>

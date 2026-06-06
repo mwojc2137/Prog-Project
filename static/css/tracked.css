@@ -1,0 +1,38 @@
+.columns {
+    display: flex;
+    justify-content: space-between;
+    gap: 4%;
+    padding-left: 10%;
+    padding-right: 10%;
+    font-size: 18px;
+}
+
+.columns label {
+    display: block;
+    font-weight: bold;
+    font-size: large;
+    text-align: center;
+    font-size: 24px;
+    margin-bottom: 15px;
+}
+
+.columns ul {
+    background-color: seashell;
+    text-align: left;
+    padding: 3%;
+    border-radius: 15px;
+    width: 27%;
+}
+
+.columns li {
+    padding: 2%;
+}
+
+.columns a {
+    color: saddlebrown;
+    text-decoration: none;
+}
+
+.columns a:hover {
+    font-weight: bold;
+}

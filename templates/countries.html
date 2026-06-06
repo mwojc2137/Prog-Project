@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% block title %} Countries {% endblock %}
+{% block css %} <link rel="stylesheet" href="{{ url_for('static', filename='css/countries.css')}}"> {% endblock %}
+{% block content %}
+    <div class='flag_grid'>
+        {% for country in countries %}
+            <div class="flag">
+                <a href='{{ url_for('web.country', country_name=country)}}'>
+                    <img src="{{ url_for('static', filename='flags/' + country + '.jpg') }}" alt="{{ country }} flag">
+                </a>
+            <p>{{ country }}</p>
+            </div>
+        {% endfor %}
+    </div>
+{% endblock %}

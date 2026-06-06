@@ -1,0 +1,27 @@
+{% extends 'index.html' %}
+{% block title %} Add city {% endblock %}
+{% block css %} <link rel="stylesheet" href="{{ url_for('static', filename='css/add_city.css')}}"> {% endblock %}
+{% block content %}
+    <div class='input_box'>
+        <h3>Add a city:</h3>
+        <form method="POST">
+            <input type="text" name="name" placeholder="Name a city" value="{{name}}"">
+            <br>
+            <button type="SUBMIT">Add a city</button>
+        </form>
+        {% if multiple_choice %}
+            <ul style="list-style-type: none;">
+                {% for city in citiesList %}
+                <li>
+                    <div class='city_button'>
+                        <form method="POST">
+                            <button type="SUBMIT" name="id" value={{ city[5] }}>{{ city[0] }}, {{ city[1] }}, population: {{ city [4] }}</button>
+                        </form>
+                    </div>
+                </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+        <a href="{{ url_for('web.index') }}">Go back</a> 
+    </div>
+{% endblock %}

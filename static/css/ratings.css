@@ -1,0 +1,47 @@
+.ranking {
+    background-color: seashell;
+    width: 65%;
+    display: inline-block;
+    border-radius: 15px;
+    padding: 10px;
+}
+
+.ranking ol {
+    counter-reset: city-rank;
+    padding-left: 0;
+}
+
+.ranking li {
+    display: flex;
+    align-items: center;
+    padding: 10px 0;
+    counter-increment: city-rank;
+}
+
+.ranking li::before {
+    content: counter(city-rank) ". ";
+    margin-right: 15px;
+    font-size: 18px;
+    color: sienna;
+}
+
+.ranking a {
+    text-decoration: none;
+    color: sienna;
+    font-size: 18px
+}
+
+.ranking a:hover {
+    color: saddlebrown;
+    font-weight: bold;
+}
+
+.ranking small {
+    margin-left: auto;
+    font-size: 30px;
+    padding-right: 20px
+}
+
+.ranking a:hover + small {
+    font-weight: bold;
+}

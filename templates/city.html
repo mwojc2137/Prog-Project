@@ -1,0 +1,90 @@
+{% extends 'index.html' %}
+{% block title %} {{ city['name']  }} {% endblock %}
+{% block css %} <link rel="stylesheet" href="{{ url_for('static', filename='css/city.css')}}"> {% endblock %}
+{% block content %}
+<div class='city-layout'>
+    <div class='left-column'>
+        <h2>{{ city['name'] }}</h2>
+        <div class="flag">
+            <a href='{{ url_for('web.country', country_name=city['country'])}}'>
+                <img src="{{ url_for('static', filename='flags/' + url) }}" alt="{{ city['country'] }} flag">
+            </a>
+        </div>
+        
+        <p>Country: {{  city['country']  }}</p>
+        <p>Population: {{ city['population']  }}</p>
+
+        <div class='bottom-actions'>
+            <form method="post" action='{{ url_for('web.delete_city', city_id=city['id'])}}'>
+                <button class='pill-btn' type="submit">Stop tracking</button>
+            </form>
+            <form action='{{ url_for('web.tracked') }}'>
+                <button class='pill-btn' onclick="{{ url_for('web.tracked') }}">Go back</button>
+            </form>
+        </div>
+    </div>
+
+    <div class='right-column'>
+        <div class='data-row'>
+            <span>Status: 
+                {% if city["visited"] == 2 %}
+                    Visited
+                {% elif city['visited'] == 1 %}
+                    Planning to visit
+                {% else %}
+                    Not visited
+                {% endif %}
+            </span>
+            <br>
+            <form method="POST">
+                <button class='pill-btn' type="SUBMIT" name="see_change_status" value=1>Change status</button>
+            </form>
+        </div>
+        
+    {% if see_change_status == 1 %}
+        <form method="post" action='{{ url_for('web.change_status', city_id=city['id'])}}'>
+            <label for="Choose status">Choose status:</label>
+                <select id='status' name='status' size='1'>
+                    <option value='visited'>Visited</option>
+                    <option value='planned'>Planning to visit</option>
+                    <option value='not_visited'>Not visited</option>
+                </select>
+            <button class='pill-btn' type='submit'>Change Status</button>
+        </form>
+    {% endif %}
+    <br><br>
+    <div class='data-row'>
+        <span>Rating:
+        {% if city['rated'] == 0 %}
+            No rating
+        {% else %}
+            {{ city ['rating'] }}
+        {% endif %}
+        </span>
+        <br>
+        <form method="POST">
+            <button class='pill-btn' type="SUBMIT" name="see_change_rating" value=1>Change rating</button>
+        </form>
+    </div>
+    {% if see_change_rating == 1 %}
+    <form class='rating-form' oninput='x.value=parseInt(rating.value)' method = 'post' action='{{ url_for('web.rate', city_id=city['id'])}}'>
+        <div class='slider-row'>
+            <label for 'Rate'>Rate {{ city['name'] }}:</label>
+            <span>0</span>
+            <input type="range" min='0' max='10' id='rating' name='rating'>
+            <span>10</span>
+            <br>
+        </div>
+        <div class='submit-row'>
+            <span>Your rating:  <output name='x' for='rating'></output></span>
+            <button class='pill-btn' type='submit'>Send rating</button>
+        </div>
+    </form>
+    <form method="post" action='{{ url_for('web.remove_rating', city_id=city['id'])}}'>
+        <button class='pill-btn' type="submit">Remove rating</button>
+    </form>
+    {% endif %}
+    </div>
+</div>
+{% endblock %}
+        

@@ -1,0 +1,90 @@
+.layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-areas:
+        "title title"
+        "left-col right-col";
+    gap: 15px;
+    max-width: 900px;
+    margin: 20px auto;
+    padding: 20px;
+    border-radius: 20px;
+    background-color: seashell;
+}
+
+.layout h2 {
+    grid-area: title;
+    text-align: center;
+    margin: 0 0 20px 0;
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.left {
+    grid-area: left-col;
+}
+
+.right {
+    grid-area: right-col;
+}
+
+.flag {
+    width: 100%;
+    margin-bottom: 30px;
+}
+
+.flag img {
+    display: block;
+    width: 100%;
+    height: auto;
+    max-height: 200px; 
+    object-fit: contain;
+}
+
+h4 {
+    font-size: 24px;
+    margin-top: 0;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+ul li {
+    margin-bottom: 12px;
+}
+
+ol {
+    padding-left: 20px;
+    margin: 0;
+}
+
+ol li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
+ol li form {
+    margin: 0;
+}
+
+button {
+    background-color: tan;
+    text-align: center;
+    border: 0;
+    border-radius: 20px;
+    padding: 5px 15px;
+    font-family: Crimson Text;
+}
+
+
+button:hover {
+    background-color: sienna;
+    font-weight: bold;
+}

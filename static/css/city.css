@@ -1,0 +1,110 @@
+.city-layout {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    max-width: 900px;
+    margin: 40px auto;
+    padding: 20px;
+    font-size: 18px;
+    background-color: seashell;
+    border-radius: 20px;
+}
+
+.left-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: self-start;
+    text-align: left;
+    gap: 10px;
+}
+
+.left-column h2 {
+    font-size: 32px;
+    margin: 0;
+    font-weight: bold;
+}
+
+.flag img {
+    width: 250px;
+    height: 150px;
+}
+
+.left-column p {
+    margin: 5px 0;
+}
+
+.bottom-actions {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.right-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    padding-top: 50px;
+    align-items: flex-end;
+    text-align: right;
+
+}
+
+.data-row {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.edit-form {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    margin-left: 20px;
+}
+
+.edit-form select {
+    padding: 10px;
+    font-size: 20px;
+}
+
+button {
+    background-color: tan;
+    text-align: center;
+    font-family: Crimson Text;
+    border: 0;
+}
+
+.pill-btn {
+    border-radius: 20px;
+    padding: 5px 15px;
+}
+
+button:hover {
+    background-color: sienna;
+    font-weight: bold;
+}
+
+.rating-form {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    gap: 15px;
+    margin-top: 10px;
+}
+
+.slider-row, .submit-row {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    white-space: nowrap; 
+}
+
+.slider-row input[type="range"] {
+    width: 180px;
+    background-color: saddlebrown
+}
+

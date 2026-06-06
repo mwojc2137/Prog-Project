@@ -1,0 +1,113 @@
+body {
+    background-color: wheat;
+    font-family: Crimson Text;
+    text-align: center;
+}
+
+header {
+    font-size: larger;
+}
+
+.flash ul {
+    list-style: none;
+    margin: 0;
+    margin-bottom: 10px;
+    padding: 0;
+}
+
+.links {
+    padding-bottom: 2%;
+    padding-top: 1%;
+    width: 80%;
+    margin: auto;
+    border-radius: 20px;
+}
+
+.links a {
+    display: inline-block;
+    width: 15%;
+    text-align: center;
+    padding-right: 0.5%;
+    padding-left: 0.5%;
+    background-color: seashell;
+    color: saddlebrown;
+    text-decoration: none;
+    border-radius: 5px;
+    padding: 1%;
+
+}
+
+.links a:hover {
+    font-weight: bold;
+    background-color: tan;
+}
+
+.map {
+    
+    position: relative;
+    display: inline-block;
+}
+
+.map img {
+    width:100%; 
+    display: block; 
+    margin: auto
+}
+
+.map-button {
+    position: absolute;
+    transform: translate(-50%, -50%);
+    padding: 0;
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    display: flex;
+    border-width: 0;
+}
+
+.map-button::after {
+    content: attr(data_name);
+    font-family: Crimson Text;
+    position: absolute;
+    bottom: 120%;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 2px 5px;
+    border-radius: 5px;
+    background-color: bisque;
+    font-size: smaller;
+    white-space: nowrap;
+    opacity: 0;
+    visibility: hidden;
+    pointer-events: none;
+}
+
+.map-button:hover::after {
+    opacity: 1;
+    visibility: visible;
+}
+
+.visited {
+    background-color: limegreen; 
+}
+
+.visited:hover { 
+    background-color: darkgreen;
+}
+
+.planned {
+    background-color: orange;
+}
+
+.planned:hover {
+    background-color: orangered;
+}
+
+.not-visited {
+    background-color: red;
+}
+
+.not-visited:hover {
+    background-color: darkred;
+}
+

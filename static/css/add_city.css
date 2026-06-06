@@ -1,0 +1,55 @@
+.input_box {
+    background-color: seashell;
+    width: 40%;
+    display: inline-block;
+    border-radius: 15px;
+    padding: 30px;
+}
+
+.input_box input {
+    height: 30px;
+    width: 65%;
+    margin-bottom: 20px;
+    border-radius: 5px;
+    text-align: center;
+    font-family: Crimson Text;
+}
+
+.input_box button {
+    background-color: tan;
+    border: 0;
+    width: 40%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    padding-right: 6px;
+    padding-left: 6px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+    font-family: Crimson Text;
+}
+
+.input_box button:hover {
+    font-weight: bold;
+    background-color: sienna;
+}
+
+.input_box a {
+    padding-top: 20px;
+    text-decoration: none;
+    color: grey
+}
+
+.input_box a:hover {
+    font-weight: bold;
+    color: black
+}
+
+.input_box ul {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+}
+
+.city_button button {
+    width: 100%;
+}

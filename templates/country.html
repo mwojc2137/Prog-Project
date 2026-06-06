@@ -1,0 +1,40 @@
+{% extends 'index.html' %}
+{% block title %} {{ country  }} {% endblock %}
+{% block css %} <link rel="stylesheet" href="{{ url_for('static', filename='css/country.css')}}"> {% endblock %}
+{% block content %}
+<div class='layout'>
+    <h2>{{ country }}</h2>
+    <div class='left'>
+        <div class="flag">      
+            <img src="{{ url_for('static', filename='flags/' + country + '.jpg') }}" alt="{{ country }} flag">        
+        </div>
+    
+        <h4>Tracked cities in {{ country }}</h4>
+        {% if length == 0 %}
+            <p>You do not track any city in {{ country }}</p>
+        {% else %}
+            <ul>
+                {% for city in tracked_cities %}
+                    <li>{{ city['name'] }}, population: {{ city['population'] }}</li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+    <div class='right'>
+        <h4>Biggest cities in {{ country }}</h4>
+        <ol>
+            {% for city in biggest_cities %}
+                <li>{{ city[0] }}, population: {{ city[4] }},
+                {% if city[5] in tracked_ids %}
+                    <button onclick="location.href='{{ url_for ('web.city', city_id=tracked_ids[city[5]]) }}'">Check city</button>
+                {% else %}
+                    <form method="POST">
+                        <button type="SUBMIT" name="id" value={{ city[5] }}>Add city</button>
+                    </form>
+                {% endif %}
+                </li>
+            {% endfor %}
+        </ol>
+    </div>
+</div>
+{% endblock %}

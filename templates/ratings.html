@@ -1,0 +1,15 @@
+{% extends 'index.html' %}
+{% block title %} Rated cities {% endblock %}
+{% block css %} <link rel="stylesheet" href="{{ url_for('static', filename='css/ratings.css')}}"> {% endblock %}
+{% block content %}
+    <div class='ranking'>
+        <h3>Tracked cities by by rating:</h3>
+            <ol>
+                {% for city in rated_cities %}
+                    <li>
+                        <a href="{{ url_for('web.city', city_id=city['id']) }}">{{ city["name"] }}, {{ city['country'] }}</a><small>{{ city['rating'] }}</small>
+                    </li>
+                {% endfor %}
+            </ol>
+    </div>        
+{% endblock %}
