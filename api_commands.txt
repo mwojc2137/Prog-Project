@@ -5,7 +5,7 @@ List a city by database id:
 curl http://127.0.0.1:5000/api/cities/0
 
 Add a city:
-url -X POST -H "Content-Type: application/json" -d "{\"geonameid\": 0000000, \"name\":\"abcde\", \"rated\":0, \"rating\":0, \"visited\":0}" http://127.0.0.1:5000/api/cities/add
+curl -X POST -H "Content-Type: application/json" -d "{\"geonameid\": 0000000, \"name\":\"abcde\", \"rated\":0, \"rating\":0, \"visited\":0}" http://127.0.0.1:5000/api/cities/add
 geonameid or name mandatory
 rated, rating, visited optional
 
