@@ -43,7 +43,7 @@ def init_db():
 @app.cli.command("init-db")
 def init_db_command():
     init_db()
-    print("✔ Baza została zainicjowana")
+    print("Database initialized")
 
 @app.cli.command("seed-db")
 def seed_db():
@@ -52,9 +52,9 @@ def seed_db():
     if howManyRows == 0:
         db.executemany("INSERT INTO cities(name, country, latitude, longitude, population, geonameid) VALUES (?, ?, ?, ?, ?, ?)",[find_city("Tokyo"), find_city("Kraków"), find_city('New York'), find_city('London'), find_city('Quito'), find_city('Sydney'), find_city('Cairo')])
         db.commit()
-        print("✔ Tabela cities została wypełniona przykładowymi danymi")
+        print("Database cities seeded with exemplary data")
     else:
-        print("❌ Tabela cities zawiera dane, nie wypełniam jej przykładowymi danymi")    
+        print("Database cities alreasy contains data")    
 
 
 if __name__ == '__main__':
