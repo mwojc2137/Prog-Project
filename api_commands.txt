@@ -14,3 +14,12 @@ curl -X PATCH -H "Content-Type: application/json" -d "{\"rated\":0, \"rating\":0
 
 Remove city from database:
 curl -X DELETE http://127.0.0.1:5000/api/cities/0
+
+Init database:
+flask --app app init-db
+
+Seed db:
+flask --app app seed-db
+
+Run app:
+flask --app app run
