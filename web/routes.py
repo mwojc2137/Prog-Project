@@ -30,6 +30,8 @@ def tracked():
 def city(city_id):
     db = get_db()
     city = db.execute("SELECT id, name, visited, added_on, latitude, longitude, country, population, geonameid, rating, rated FROM cities WHERE id = ?", [city_id]).fetchone()
+    if not city:
+        return redirect(url_for('web.tracked'))
     url = f'{city['country']}.jpg'
     see_change_status = 0
     see_change_rating = 0
