@@ -5,6 +5,7 @@
 <div class='city-layout'>
     <div class='left-column'>
         <h2>{{ city['name'] }}</h2>
+        <small>#{{ city['id'] }}</small>
         <div class="flag">
             <a href='{{ url_for('web.country', country_name=city['country'])}}'>
                 <img src="{{ url_for('static', filename='flags/' + url) }}" alt="{{ city['country'] }} flag">
